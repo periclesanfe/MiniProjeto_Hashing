@@ -21,7 +21,10 @@ Criar um sistema que permita o gerenciamento de eventos organizados por categori
 
 <b>PROBLEMAS</b>
 
+<p style="text-align: center; text-justify: auto;">  Nesse projeto, os problemas vieram com a especificação de não utilizar funções prontas do python, já que o mais sensato a se fazer seria recriar as funções da linguagem, o que não é possivel para um projeto tão pequeno, já que a maior parte delas estão escritas em C, principalmente a função HASH, pilastra principal desse algoritimo.<br>  Um desafio que enfrentamos foi para conseguir pegar os itens armazenados em hashing e utilzia-los depois de adicionar.<br>Um outro desafio foi recriar a função hash, a qual fizemos de uma maneira muito simples, apenas para transformar o nome do evento em uma chave e armazená-la</p> 
+
 <b>COMENTÁRIOS:</b>
+<p style="text-align: center; text-justify: auto;"> Algumas coisas na explicação nao estavam muito bem explicadas, como a utilização de uma descrição, acabamos por não fazer nada com essa informação, apenas armazenar, já que não foi pedido pra utilizar nada.</p>
 
 <b>PARTICIPANTES:</b>
 
@@ -29,4 +32,3 @@ Criar um sistema que permita o gerenciamento de eventos organizados por categori
 * André Filipe Gomes Rocha / https://github.com/Andrefgr24
 * Péricles Andrade Feitoza / https://github.com/periclesanfe
 
-<b>REFERÊNCIAS:</b>
