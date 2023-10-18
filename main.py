@@ -3,6 +3,7 @@ class HashTable:
         self._tamanho = 100 #
         self._slots = [None] * self._tamanho
         self._valores = [None] * self._tamanho
+        self._descricao = [None] * self._tamanho
     
     def hashfunction(self,chave):
         total = 0
@@ -13,7 +14,7 @@ class HashTable:
     def rehash(self,oldhash):
         return (oldhash+1) % self._tamanho
     
-    def put(self,chave,valor):
+    def put(self,chave,valor, descricao):
         valor_hash = self.hashfunction(chave)
         
         while self._slots[valor_hash] != None and self._slots[valor_hash] != chave:
@@ -21,6 +22,7 @@ class HashTable:
             
         self._slots[valor_hash] = chave
         self._valores[valor_hash] = valor
+        self._descricao[valor_hash] = descricao
                     
     def get(self,chave): # retorna a categoria do evento, por nome   
         valor_hash = self.hashfunction(chave)
@@ -43,6 +45,7 @@ class HashTable:
             if self._slots[valor_hash] == chave:
                 self._slots[valor_hash] = None
                 self._valores[valor_hash] = None
+                self._descricao[valor_hash] = None
                 return True
             valor_hash = self.rehash(valor_hash)
         
@@ -55,6 +58,7 @@ class HashTable:
         
         novo_slots = [None] * novo_tamanho
         novo_valores = [None] * novo_tamanho
+        novo_descricoes = [None] * novo_tamanho
         
         for i in range(self._tamanho):
             if self._slots[i] != None:
@@ -63,10 +67,12 @@ class HashTable:
                     novo_hash = self.rehash(novo_hash) % novo_tamanho
                 novo_slots[novo_hash] = self._slots[i]
                 novo_valores[novo_hash] = self._valores[i]
+                novo_descricoes[novo_hash] = self._descricao[i]
         
         self._tamanho = novo_tamanho
         self._slots = novo_slots
         self._valores = novo_valores
+        self._descricao = novo_descricoes
         
     def eh_primo(self,numero):
         for i in range(2,numero):
@@ -97,7 +103,8 @@ def main():
         if escolha == "1":
             nome = input("Digite o nome do evento: ")
             categoria = input("Digite a categoria do evento: ")
-            eventos.put(nome,categoria)
+            descricao = input("Informe uma descrição para o evento: ")
+            eventos.put(nome,categoria, descricao)
             print("Evento adicionado com sucesso!")
         
         elif escolha == "2":
